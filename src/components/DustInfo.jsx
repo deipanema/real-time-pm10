@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ControlMenu from "./ControlMenu";
 import DustItem from "./DustItem";
+import FooterTab from "./FooterTab";
 
 const sidos = [
   { name: "전국", value: "전국" },
@@ -50,6 +51,7 @@ export default function DustInfo() {
           <DustItem {...dust} />
         ))}
       </ul>
+      <FooterTab />
     </div>
   );
 }

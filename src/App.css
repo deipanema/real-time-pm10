@@ -103,7 +103,7 @@ header .head-text {
   padding: 5px 10px;
   border-radius: 8px;
   background-color: white;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .content-container {
@@ -156,4 +156,40 @@ header .head-text {
 
 .pm10-grade-content-5 {
   color: #ff5959;
+}
+
+/* FOOTER TAB */
+.footer-container {
+  border-top: 2px solid #d3d3d3ab;
+  border-bottom: 2px solid #d3d3d3ab;
+  display: flex;
+  justify-content: space-around;
+  position: sticky;
+  bottom: 0px;
+  height: 75px;
+  background: #f0f0f0;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+}
+
+.footer-item {
+  cursor: pointer;
+  flex-basis: 100em;
+}
+
+.material-symbols-outlined {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.context {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
 }
