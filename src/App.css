@@ -73,6 +73,7 @@ header .head-text {
 
 /* DUST ITEM */
 .dust-item {
+  position: relative;
   color: white;
   border-radius: 10px;
   margin: 30px 20px;
@@ -81,17 +82,25 @@ header .head-text {
   text-align: center;
 }
 
-.dust-item .name {
+.dust-item .card-title {
   display: flex;
   align-items: flex-end;
 }
 
-.dust-item .name .h2 {
+.dust-item .material-icons {
+  position: absolute;
+  font-size: 30px;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.dust-item .card-title .h2 {
   font-size: 25px;
   padding-right: 5px;
 }
 
-.dust-item .name .h3 {
+.dust-item .card-title .h3 {
   font-size: 18px;
 }
 
@@ -160,8 +169,7 @@ header .head-text {
 
 /* FOOTER TAB */
 .footer-container {
-  border-top: 2px solid #d3d3d3ab;
-  border-bottom: 2px solid #d3d3d3ab;
+  border-top: 1px solid #d3d3d3;
   display: flex;
   justify-content: space-around;
   position: sticky;
@@ -178,9 +186,11 @@ header .head-text {
 .footer-item {
   cursor: pointer;
   flex-basis: 100em;
+  text-decoration: none;
+  color: #5f656d;
 }
 
-.material-symbols-outlined {
+.material-icons {
   display: flex;
   justify-content: center;
   align-items: center;

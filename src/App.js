@@ -1,12 +1,14 @@
 import "./App.css";
-import DustInfo from "./components/DustInfo";
+import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
+import FooterTab from "./components/FooterTab";
 
-export default function AppProducts() {
+export default function App() {
   return (
     <>
       <Header />
-      <DustInfo />
+      <Outlet />
+      <FooterTab />
     </>
   );
 }
