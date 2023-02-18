@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap");
-
 * {
   font-family: "Nanum Gothic", sans-serif;
 }
@@ -11,6 +9,11 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px;
 }
 
 @media (min-width: 650px) {
@@ -40,11 +43,99 @@ header {
   display: flex;
   align-items: center;
   height: 80px;
-  padding: 20px 0px;
+  padding: 20px 15px;
   border-bottom: 1px solid #e2e2e2;
 }
 
 header .head-text {
-  font-size: 25px;
+  font-family: "Jua", sans-serif;
+  font-size: 55px;
   margin: 0 auto;
+}
+
+/* DUST ITEM */
+.dust-item {
+  color: white;
+  border-radius: 10px;
+  margin: 30px 20px;
+  padding: 10px 10px;
+  border-bottom: 1px solid #e2e2e2;
+  text-align: center;
+}
+
+.dust-item .name {
+  display: flex;
+  align-items: flex-end;
+}
+
+.dust-item .name .h2 {
+  font-size: 25px;
+  padding-right: 5px;
+}
+
+.dust-item .name .h3 {
+  font-size: 18px;
+}
+
+.pm10-grade-container {
+  margin: 23px auto;
+}
+
+.dust-item .pm10-grade {
+  padding: 5px 10px;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 50px;
+}
+
+.content-container {
+  margin-top: 20px;
+}
+
+.content-container > p {
+  margin: 0;
+}
+
+.dust-item-color-0 {
+  background-color: #8f8f8f;
+}
+
+.pm10-grade-content-0 {
+  color: #8f8f8f;
+}
+
+.dust-item-color-1 {
+  background-color: #32a1ff;
+}
+
+.pm10-grade-content-1 {
+  color: #32a1ff;
+}
+.dust-item-color-2 {
+  background-color: #00c73c;
+}
+
+.pm10-grade-content-2 {
+  color: #00c73c;
+}
+.dust-item-color-3 {
+  background-color: #ffc323;
+}
+
+.pm10-grade-content-3 {
+  color: #ffc323;
+}
+.dust-item-color-4 {
+  background-color: #fd9b5a;
+}
+
+.pm10-grade-content-4 {
+  color: #fd9b5a;
+}
+.dust-item-color-5 {
+  background-color: #ff5959;
+}
+
+.pm10-grade-content-5 {
+  color: #ff5959;
 }
