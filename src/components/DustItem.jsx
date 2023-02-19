@@ -6,10 +6,22 @@ export default function DustItem({
   pm10Grade,
   pm10Value,
   dataTime,
+  booking,
   onAdd,
+  onDelete,
 }) {
-  const [star, setStar] = useState("star_outline");
-  const [bookmarks, setBookmarks] = useState([]);
+  let target;
+  const [star, setStar] = useState(false);
+  // console.log(
+  //   "😍",
+  //   stationName,
+  //   sidoName,
+  //   pm10Grade,
+  //   pm10Value,
+  //   dataTime,
+  //   booking
+  // );
+
   let gradeKor;
   switch (pm10Grade) {
     case "1":
@@ -33,14 +45,63 @@ export default function DustItem({
   }
 
   const toggleStar = (event) => {
-    setStar((prev) => (prev === "star" ? "star_outline" : "star"));
-    onAdd({ stationName, sidoName, pm10Grade, pm10Value, dataTime });
-    console.log(stationName);
-    //addBookmark(event.target);
-  };
+    setStar((prev) => !prev);
 
-  const addBookmark = (target) => {
-    //onAdd({})
+    console.log(star);
+    console.log(event.target.value);
+
+    if (booking) {
+      target = event.target.previousSibling.previousSibling.innerHTML;
+      onDelete(target);
+      console.log("딜리투");
+    }
+
+    if (!star) {
+      onAdd({
+        booking: !star,
+        dataTime,
+        pm10Grade,
+        pm10Value,
+        sidoName,
+        stationName,
+      });
+    }
+
+    //const star = prev === "star" ? "star_outline" : "star";
+    //console.log(star);
+    //if (!star) {
+
+    // if (booking) {
+    //   target = event.target.previousSibling.previousSibling.innerHTML;
+    //   onDelete(target);
+    //   console.log("딜리투");
+    // }
+
+    // onAdd({
+    //   booking: !star,
+    //   dataTime,
+    //   pm10Grade,
+    //   pm10Value,
+    //   sidoName,
+    //   stationName,
+    // });
+    // return star;
+    //}
+
+    //const target = event.target;
+    //console.log(event.target);
+
+    // if (event.target === "star") {
+    //   console.log("😀star");
+    // }
+    //else {
+    //   console.log(
+    //     JSON.parse(localStorage.getItem("bookmark")).find(
+    //       (bookmark) => bookmark === target
+    //     )
+    //   );
+    //onDelete(localStorage.removeItem());
+    //}
   };
 
   return (
@@ -50,9 +111,12 @@ export default function DustItem({
           <div className="card-title">
             <div className="h2">{stationName}</div>
             <div className="h3">{sidoName}</div>
-          </div>
-          <div className="material-icons" onClick={toggleStar}>
-            {star}
+            <div
+              className={["material-icons", `${star}`].join(" ")}
+              onClick={toggleStar}
+            >
+              {star || booking ? "star" : "star_outline"}
+            </div>
           </div>
           <div className="pm10-grade-container">
             <span className="pm10-grade">

@@ -1,28 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ControlMenu from "../components/ControlMenu";
 import DustItem from "../components/DustItem";
 
-export default function AllSidoList() {
-  const [dusts, setDusts] = useState([]);
+export default function AllSidoList({ dusts, onAdd, onDelete }) {
   const [sido, setSido] = useState(sidos[0].value);
-  const [bookmarks, setBookmarks] = useState([]);
-
-  useEffect(() => {
-    fetch("data/dust.json")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("json 받아");
-        setDusts(data.response.body.items);
-      });
-    return () => console.log("데이터 잘 받아왔수");
-  }, []);
 
   const filtered = getFilteredsido(dusts, sido);
-
-  const addBookmark = (bookmark) => {
-    setBookmarks([...bookmarks, bookmark]);
-    console.log(bookmark);
-  };
 
   return (
     <main className="dust-info">
@@ -31,7 +14,7 @@ export default function AllSidoList() {
       </div>
       <section>
         {filtered.map((dust) => (
-          <DustItem {...dust} onAdd={addBookmark} />
+          <DustItem {...dust} onAdd={onAdd} onDelete={onDelete} />
         ))}
       </section>
     </main>
