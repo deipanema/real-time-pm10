@@ -9,6 +9,11 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 ul {
@@ -29,13 +34,46 @@ ul {
 }
 
 #root {
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
   background-color: white;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+#root .loading-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 100px;
+  left: 0px;
+  right: 0px;
+}
+
+.loading-container .emotion {
+  position: absolute;
+  font-family: "Jua", sans-serif;
+  font-size: 90px;
+  color: #dadce0;
+}
+
+.loading-container .error-message {
+  position: absolute;
+  font-family: "Jua", sans-serif;
+  font-size: 25px;
+}
+
+#root .loading-spinner {
+  width: 100px;
+  height: 100px;
+}
+
 .App {
-  min-height: 100vh;
   padding: 0px 20px;
+}
+
+.dust-info {
+  margin-bottom: 100px;
 }
 
 /* HEADER */
@@ -172,7 +210,10 @@ header .head-text {
   border-top: 1px solid #d3d3d3;
   display: flex;
   justify-content: space-around;
-  position: sticky;
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  width: auto;
   bottom: 0px;
   height: 75px;
   background: #f0f0f0;
