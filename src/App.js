@@ -7,42 +7,35 @@ import AllSidoList from "./pages/AllSidoList";
 import MyRegion from "./pages/MyRegion";
 import useDust from "./hooks/use-dust";
 import NotFound from "./pages/NotFound";
+import { dataActions } from "./store/index";
+import { useDispatch } from "react-redux";
 
 export default function App() {
-  //const [dusts, setDusts] = useState([]);
   const [sido, setSido] = useState(sidos[0].value);
   const [loading, error, dusts] = useDust({ sidoName: sido });
+  const dustData = dusts.map((dust) => {
+    return {
+      dataTime: dust.dataTime,
+      pm10Grade: dust.pm10Grade,
+      pm10Value: dust.pm10Value,
+      sidoName: dust.sidoName,
+      stationName: dust.stationName,
+    };
+  });
 
-  const [bookmarks, setBookmarks] = useState([]);
-  //let storage = [];
-  console.log(bookmarks);
-  localStorage.setItem("bookmark", JSON.stringify(bookmarks));
+  const dispatch = useDispatch();
 
-  const addBookmark = (bookmark) => {
-    setBookmarks([...bookmarks, bookmark]);
-  };
-
-  const deleteBookmark = (target) => {
-    console.log(target);
-    setBookmarks(
-      bookmarks.filter((bookmark) => bookmark.stationName !== target)
-    );
-  };
-
-  // const deleteBookmark = (bookmarks) => {
-  //   return bookmarks.filter(bookmark => bookmarks.)
-  // }
-
-  const storage = JSON.parse(localStorage.getItem("bookmark"));
-  //console.log(storageBookmarks[0]);
+  useEffect(() => {
+    dispatch(dataActions.addDusts(dustData));
+  }, [dispatch, dustData]);
 
   const emotions = ["(⊙x⊙;)", "＞﹏＜", "இ௰இ", "ᕦ(ò_óˇ)ᕤ"];
 
   if (error)
     return (
       <div className="loading-container">
-        <p className="error-message">{error}</p>
         <p className="emotion">{emotions[Math.floor(Math.random() * 5)]}</p>
+        <p className="error-message">{error}</p>
       </div>
     );
 
@@ -65,21 +58,12 @@ export default function App() {
       children: [
         {
           index: true,
-          element: (
-            <AllSidoList
-              sido={sido}
-              setSido={setSido}
-              sidos={sidos}
-              dusts={dusts}
-              onAdd={addBookmark}
-              onDelete={deleteBookmark}
-            />
-          ),
+          element: <AllSidoList sido={sido} setSido={setSido} sidos={sidos} />,
         },
         { path: "region", element: <MyRegion /> },
         {
           path: "Bookmark",
-          element: <Bookmark bookmarks={storage} onDelete={deleteBookmark} />,
+          element: <Bookmark />,
         },
       ],
     },

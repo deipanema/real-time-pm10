@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { dataActions } from "../store";
 
 export default function DustItem({
   stationName,
@@ -6,21 +8,25 @@ export default function DustItem({
   pm10Grade,
   pm10Value,
   dataTime,
-  booking,
-  onAdd,
-  onDelete,
 }) {
-  let target;
-  const [star, setStar] = useState(false);
-  // console.log(
-  //   "😍",
-  //   stationName,
-  //   sidoName,
-  //   pm10Grade,
-  //   pm10Value,
-  //   dataTime,
-  //   booking
-  // );
+  const dispatch = useDispatch();
+  const bookmarks = useSelector((state) => state.bookmarks);
+
+  const addBookmarks = () => {
+    dispatch(
+      dataActions.addBookmarks({
+        stationName,
+        sidoName,
+        pm10Grade,
+        pm10Value,
+        dataTime,
+      })
+    );
+  };
+
+  const deleteBookmarks = () => {
+    dispatch(dataActions.deleteBookmarks(stationName));
+  };
 
   let gradeKor;
   switch (pm10Grade) {
@@ -44,66 +50,6 @@ export default function DustItem({
       gradeKor = "알 수 없음";
   }
 
-  const toggleStar = (event) => {
-    setStar((prev) => !prev);
-
-    console.log(star);
-    console.log(event.target.value);
-
-    if (booking) {
-      target = event.target.previousSibling.previousSibling.innerHTML;
-      onDelete(target);
-      console.log("딜리투");
-    }
-
-    if (!star) {
-      onAdd({
-        booking: !star,
-        dataTime,
-        pm10Grade,
-        pm10Value,
-        sidoName,
-        stationName,
-      });
-    }
-
-    //const star = prev === "star" ? "star_outline" : "star";
-    //console.log(star);
-    //if (!star) {
-
-    // if (booking) {
-    //   target = event.target.previousSibling.previousSibling.innerHTML;
-    //   onDelete(target);
-    //   console.log("딜리투");
-    // }
-
-    // onAdd({
-    //   booking: !star,
-    //   dataTime,
-    //   pm10Grade,
-    //   pm10Value,
-    //   sidoName,
-    //   stationName,
-    // });
-    // return star;
-    //}
-
-    //const target = event.target;
-    //console.log(event.target);
-
-    // if (event.target === "star") {
-    //   console.log("😀star");
-    // }
-    //else {
-    //   console.log(
-    //     JSON.parse(localStorage.getItem("bookmark")).find(
-    //       (bookmark) => bookmark === target
-    //     )
-    //   );
-    //onDelete(localStorage.removeItem());
-    //}
-  };
-
   return (
     <article>
       <ul>
@@ -111,11 +57,18 @@ export default function DustItem({
           <div className="card-title">
             <div className="h2">{stationName}</div>
             <div className="h3">{sidoName}</div>
-            <div
-              className={["material-icons", `${star}`].join(" ")}
-              onClick={toggleStar}
-            >
-              {star || booking ? "star" : "star_outline"}
+            <div>
+              {bookmarks.some(
+                (bookmark) => bookmark.stationName === stationName
+              ) ? (
+                <div className="material-icons" onClick={deleteBookmarks}>
+                  star
+                </div>
+              ) : (
+                <div className="material-icons" onClick={addBookmarks}>
+                  star_outline
+                </div>
+              )}
             </div>
           </div>
           <div className="pm10-grade-container">
@@ -131,7 +84,6 @@ export default function DustItem({
           </div>
         </li>
       </ul>
-      {/* <span class="material-icons">star</span> */}
     </article>
   );
 }

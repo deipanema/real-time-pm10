@@ -51,13 +51,13 @@ ul {
 }
 
 .loading-container .emotion {
-  position: absolute;
   font-family: "Jua", sans-serif;
   font-size: 90px;
   color: #dadce0;
 }
 
 .loading-container .error-message {
+  margin-top: 120px;
   position: absolute;
   font-family: "Jua", sans-serif;
   font-size: 25px;
