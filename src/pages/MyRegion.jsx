@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function MyRegion() {
-  return <div>region</div>;
+  return <div>개발전</div>;
 }

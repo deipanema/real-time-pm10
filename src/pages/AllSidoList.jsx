@@ -19,7 +19,12 @@ export default function AllSidoList({
       </div>
       <section>
         {filtered.map((dust) => (
-          <DustItem {...dust} onAdd={onAdd} onDelete={onDelete} />
+          <DustItem
+            key={`${dust.stationName}`}
+            {...dust}
+            onAdd={onAdd}
+            onDelete={onDelete}
+          />
         ))}
       </section>
     </main>
