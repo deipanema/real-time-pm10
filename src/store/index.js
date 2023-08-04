@@ -1,9 +1,9 @@
-import { createSlice, configureStore } from "@reduxjs/toolkit";
+import { createSlice, configureStore } from '@reduxjs/toolkit';
 
 const initialState = { dusts: [], bookmarks: [] };
 
 const dataSlice = createSlice({
-  name: "data",
+  name: 'data',
   initialState,
   reducers: {
     addDusts(state, action) {

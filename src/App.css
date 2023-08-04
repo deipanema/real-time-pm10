@@ -1,5 +1,5 @@
 * {
-  font-family: "Nanum Gothic", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 body {
@@ -41,25 +41,24 @@ ul {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-#root .loading-container {
+#root .status-container {
   position: absolute;
   display: flex;
   justify-content: center;
-  top: 100px;
+  margin-top: 50px;
   left: 0px;
   right: 0px;
 }
 
-.loading-container .emotion {
-  font-family: "Jua", sans-serif;
+.status-container .emotion {
+  font-family: 'Jua', sans-serif;
   font-size: 90px;
   color: #dadce0;
 }
 
-.loading-container .error-message {
-  margin-top: 120px;
+.status-container .error-message {
   position: absolute;
-  font-family: "Jua", sans-serif;
+  font-family: 'Jua', sans-serif;
   font-size: 25px;
 }
 
@@ -72,8 +71,8 @@ ul {
   padding: 0px 20px;
 }
 
-.dust-info {
-  margin-bottom: 100px;
+main {
+  padding-bottom: 75px;
 }
 
 /* HEADER */
@@ -83,14 +82,12 @@ header {
   height: 80px;
   padding: 20px 15px;
   border-bottom: 1px solid #e2e2e2;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-header .head-text {
-  font-family: "Jua", sans-serif;
-  font-size: 55px;
-  margin: 0 auto;
-  color: #282c37;
-}
+/* header .head-text {
+  width: 100%;
+} */
 
 /* SELECT BOX */
 .menu {
@@ -118,6 +115,7 @@ header .head-text {
   padding: 10px 10px;
   border-bottom: 1px solid #e2e2e2;
   text-align: center;
+  min-height: 150px;
 }
 
 .dust-item .card-title {
@@ -214,7 +212,7 @@ header .head-text {
   right: 0px;
   left: 0px;
   width: auto;
-  bottom: 0px;
+  bottom: -0.5px;
   height: 75px;
   background: #f0f0f0;
 }
@@ -239,8 +237,82 @@ header .head-text {
 }
 
 .context {
+  font-size: 14px;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* MY REGION */
+.region-title-container {
+  font-family: 'Jua', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.region-title-container .material-icons {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.region-title {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.region-description-container {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
+}
+
+.region-description {
+  max-width: 50%;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.region-pm10-grade-image {
+  display: flex;
+  justify-content: center;
+  height: 20em;
+  overflow: hidden;
+}
+
+.region-pm10-grade-image img {
+  max-width: 100%; /* 이미지의 너비가 부모 요소를 넘지 않도록 설정 */
+}
+
+.region-container {
+  text-align: center;
+}
+
+.region-pm10-info-container {
+  font-family: 'Jua', sans-serif;
+}
+
+.region-pm10-value {
+  font-size: 33px;
+  font-weight: bold;
+}
+
+.region-pm10-grade {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.region-address-time-container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  font-size: 14px;
+  margin-top: 20px;
+}
+
+.region-address {
+  font-size: 18px;
+}
+
+.region-time {
+  font-size: 18px;
 }

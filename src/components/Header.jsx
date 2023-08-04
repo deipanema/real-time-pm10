@@ -1,9 +1,12 @@
-import React from "react";
+import React from 'react';
 
 export default function Header({ headText }) {
-  return (
-    <header>
-      <h1 className="head-text">미세먼지 알리미{headText}</h1>
-    </header>
-  );
+  const headerStyle = {
+    backgroundImage: `url('/image/brand.png')`,
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+  };
+
+  return <header style={headerStyle}></header>;
 }
