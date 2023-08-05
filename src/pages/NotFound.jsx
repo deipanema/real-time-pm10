@@ -1,5 +1,9 @@
-import React from "react";
+import ErrorStatusMessage from '../components/ErrorStatusMessage';
 
 export default function NotFound() {
-  return <div>페이지를 찾을 수가 없어요!</div>;
+  return (
+    <>
+      <ErrorStatusMessage message={'페이지를 찾을 수 없습니다.'} />
+    </>
+  );
 }

@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 export default function FooterTab() {
   return (
     <nav className='footer-container'>
-      <Link className='footer-item' to='/region'>
+      <Link className='footer-item' to='/neighborhoods'>
         <div className='material-icons'>account_circle</div>
-        <div className='context'>우리 동네 미세먼지</div>
+        <div className='context'>우리 동네</div>
       </Link>
       <Link className='footer-item' to='/'>
         <div className='material-icons'>language</div>
-        <div className='context'>전국 미세먼지</div>
+        <div className='context'>동네별</div>
       </Link>
       <Link className='footer-item' to='/bookmark'>
         <div className='material-icons'>bookmarks</div>

@@ -9,13 +9,15 @@ export default function Bookmark() {
 
   return bookmarks.length === 0 ? (
     <div className='status-container'>
-      <p className='error-message'>즐겨찾기가 비어있습니다.</p>
+      <p className='message'>즐겨찾기가 비어있습니다.</p>
     </div>
   ) : (
     <main className='dust-info'>
-      {bookmarks.map((bookmark) => (
-        <DustItem key={`mark-${bookmark.stationName}`} {...bookmark} />
-      ))}
+      <ul>
+        {bookmarks.map((bookmark) => (
+          <DustItem key={`mark-${bookmark.stationName}`} {...bookmark} />
+        ))}
+      </ul>
     </main>
   );
 }

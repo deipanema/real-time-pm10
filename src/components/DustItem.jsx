@@ -50,47 +50,41 @@ export default function DustItem({
   }
 
   return (
-    <article>
-      <ul>
-        <li className={['dust-item', `dust-item-color-${pm10Grade}`].join(' ')}>
-          <div className='card-title'>
-            <div className='h2'>{stationName}</div>
-            <div className='h3'>{sidoName}</div>
-            <div>
-              {bookmarks.some(
-                (bookmark) => bookmark.stationName === stationName
-              ) ? (
-                <div className='material-icons' onClick={deleteBookmarks}>
-                  star
-                </div>
-              ) : (
-                <div className='material-icons' onClick={addBookmarks}>
-                  star_outline
-                </div>
-              )}
+    <li className={['dust-item', `dust-item-color-${pm10Grade}`].join(' ')}>
+      <div className='card-title'>
+        <div className='h2'>{stationName}</div>
+        <div className='h3'>{sidoName}</div>
+        <div>
+          {bookmarks.some(
+            (bookmark) => bookmark.stationName === stationName
+          ) ? (
+            <div className='material-icons' onClick={deleteBookmarks}>
+              star
             </div>
-          </div>
-          <div className='pm10-grade-container'>
-            <span className='pm10-grade'>
-              <span className={`pm10-grade-content-${pm10Grade}`}>
-                {gradeKor}
-              </span>
-            </span>
-          </div>
-          <div className='content-container'>
-            <p className='pm10-value'>
-              {pm10Value === '-' || !pm10Value
-                ? '측정소의 사정으로 미세먼지'
-                : `미세먼지 수치: ${pm10Value}`}
-            </p>
-            <p className='date-time'>
-              {pm10Value === '-' || !pm10Value
-                ? '정보를 가져올 수 없습니다.'
-                : `(${dataTime} 기준)`}
-            </p>
-          </div>
-        </li>
-      </ul>
-    </article>
+          ) : (
+            <div className='material-icons' onClick={addBookmarks}>
+              star_outline
+            </div>
+          )}
+        </div>
+      </div>
+      <div className='pm10-grade-container'>
+        <span className='pm10-grade'>
+          <span className={`pm10-grade-content-${pm10Grade}`}>{gradeKor}</span>
+        </span>
+      </div>
+      <div className='content-container'>
+        <p className='pm10-value'>
+          {pm10Value === '-' || !pm10Value
+            ? '측정소의 사정으로 미세먼지'
+            : `미세먼지 수치: ${pm10Value}`}
+        </p>
+        <p className='date-time'>
+          {pm10Value === '-' || !pm10Value
+            ? '정보를 가져올 수 없습니다.'
+            : `(${dataTime} 기준)`}
+        </p>
+      </div>
+    </li>
   );
 }

@@ -1,11 +1,6 @@
-export default function Error(error) {
-  console.log(error);
-  return (
-    <div className='status-container'>
-      <p className='emotion'>{emotions[Math.floor(Math.random() * 5)]}</p>
-      <p className='error-message'>{error}</p>
-    </div>
-  );
-}
+import { networkErrorMessage } from '../utils/constants';
+import ErrorStatusMessage from './ErrorStatusMessage';
 
-const emotions = ['(⊙x⊙;)', '＞﹏＜', 'இ௰இ', 'ᕦ(ò_óˇ)ᕤ'];
+export default function Error({ error = networkErrorMessage }) {
+  return <ErrorStatusMessage message={error} />;
+}
