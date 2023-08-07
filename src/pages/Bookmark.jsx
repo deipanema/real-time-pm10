@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import DustItem from '../components/DustItem';
+import DustCard from '../components/DustCard';
 import { updateBookmarks } from '../store/bookmarkThunks';
 
 export default function Bookmark() {
@@ -24,7 +24,7 @@ export default function Bookmark() {
         ) : (
           <ul>
             {bookmarks.map((bookmark) => (
-              <DustItem
+              <DustCard
                 key={`bookmark-${bookmark.stationName}`}
                 {...bookmark}
               />

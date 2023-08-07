@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { addBookmark, removeBookmark } from '../store/bookmarkSlice';
 
-export default function DustItem({
+export default function DustCard({
   stationName,
   sidoName,
   pm10Grade,
@@ -36,8 +36,8 @@ export default function DustItem({
   return (
     <li
       className={[
-        'dust-item',
-        pm10Grade ? `dust-item-color-${pm10Grade}` : 'dust-item-color-0',
+        'dust-card',
+        pm10Grade ? `dust-card-color-${pm10Grade}` : 'dust-card-color-0',
       ].join(' ')}
     >
       <div className='title'>

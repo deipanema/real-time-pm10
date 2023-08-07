@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ControlMenu from '../components/ControlMenu';
-import DustItem from '../components/DustItem';
+import DustCard from '../components/DustCard';
 import useAllSido from '../hooks/useAllSido';
 import Error from '../components/Error';
 import Loading from '../components/Loading';
@@ -24,7 +24,7 @@ export default function Nationwide() {
       {dusts.length !== 0 && (
         <ul>
           {dusts.map((dust) => (
-            <DustItem key={`${dust.stationName}`} {...dust} />
+            <DustCard key={`${dust.stationName}`} {...dust} />
           ))}
         </ul>
       )}

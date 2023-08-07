@@ -126,7 +126,7 @@ header {
 }
 
 /* DUST ITEM */
-.dust-item {
+.dust-card {
   position: relative;
   color: var(--color-white);
   border-radius: 10px;
@@ -136,12 +136,12 @@ header {
   min-height: 150px;
 }
 
-.dust-item .title {
+.dust-card .title {
   display: flex;
   align-items: flex-end;
 }
 
-.dust-item .material-icons {
+.dust-card .material-icons {
   position: absolute;
   font-size: 30px;
   top: 10px;
@@ -149,12 +149,12 @@ header {
   cursor: pointer;
 }
 
-.dust-item .title .stationName {
+.dust-card .title .stationName {
   font-size: 25px;
   padding-right: 5px;
 }
 
-.dust-item .title .sidoName {
+.dust-card .title .sidoName {
   font-size: 18px;
 }
 
@@ -162,7 +162,7 @@ header {
   margin: 23px auto;
 }
 
-.dust-item .pm10-grade {
+.dust-card .pm10-grade {
   padding: 5px 10px;
   border-radius: 8px;
   background-color: var(--color-white);
@@ -177,7 +177,7 @@ header {
   margin: 2px;
 }
 
-.dust-item-color-0 {
+.dust-card-color-0 {
   background-color: var(--color-grade0);
 }
 
@@ -185,28 +185,28 @@ header {
   color: var(--color-grade0);
 }
 
-.dust-item-color-1 {
+.dust-card-color-1 {
   background-color: var(--color-grade1);
 }
 
 .pm10-grade-content-1 {
   color: var(--color-grade1);
 }
-.dust-item-color-2 {
+.dust-card-color-2 {
   background-color: var(--color-grade2);
 }
 
 .pm10-grade-content-2 {
   color: var(--color-grade2);
 }
-.dust-item-color-3 {
+.dust-card-color-3 {
   background-color: var(--color-grade3);
 }
 
 .pm10-grade-content-3 {
   color: var(--color-grade3);
 }
-.dust-item-color-4 {
+.dust-card-color-4 {
   background-color: var(--color-grade4);
 }
 
