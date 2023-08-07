@@ -1,6 +1,4 @@
-export default function ErrorStatusMessage({ message }) {
-  const emotions = ['(⊙x⊙;)', '＞﹏＜', 'இ௰இ', '(⊙_⊙)？', '( ͠° ͟ʖ ͡°)', '(⓿_⓿)'];
-
+export default function StatusMessage({ message }) {
   return (
     <div className='status-container'>
       <p className='emotion'>
@@ -10,3 +8,5 @@ export default function ErrorStatusMessage({ message }) {
     </div>
   );
 }
+
+const emotions = ['(⊙x⊙;)', '＞﹏＜', 'இ௰இ', '(⊙_⊙)？', '( ͠° ͟ʖ ͡°)', '(⓿_⓿)'];

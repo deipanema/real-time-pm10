@@ -4,21 +4,21 @@ import Loading from '../components/Loading';
 import Pm10Image from '../components/Pm10Image';
 
 export default function Neighborhoods() {
-  const [loading, error, localStation, pm10] = useRealTime();
-  const { dataTime, pm10Grade, pm10Value, pm10Flag } = pm10;
+  const [loading, error, nearestStation, pm10Data] = useRealTime();
+  const { dataTime, pm10Grade, pm10Value, pm10Flag } = pm10Data;
 
-  const [gradeContent, gradeDescription] = getPM10Info(pm10Grade, pm10Flag);
+  const [gradeContent, gradeDescription] = getGradeContent(pm10Grade, pm10Flag);
 
   if (error) return <Error error={error} />;
   if (loading) return <Loading />;
 
   return (
     <main className='neighborhoods-container'>
-      <div className='neighborhoods-title-container'>
-        <div className='material-icons'>location_pin</div>
-        <h1 className='neighborhoods-title' title='우리동네 측정소'>
-          {localStation.stationName} 측정소
-        </h1>
+      <div className='title-container'>
+        <span className='material-icons' aria-hidden='true'>
+          location_pin
+        </span>
+        <h1>{nearestStation.stationName} 측정소</h1>
       </div>
       <p className='neighborhoods-dataTime'>
         {dataTime ? `${dataTime} 업데이트` : ''}
@@ -48,7 +48,7 @@ export default function Neighborhoods() {
   );
 }
 
-function getPM10Info(pm10Grade, pm10Flag) {
+function getGradeContent(pm10Grade, pm10Flag) {
   switch (pm10Grade) {
     case '1':
       return [

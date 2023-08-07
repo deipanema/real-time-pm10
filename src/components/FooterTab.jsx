@@ -4,17 +4,23 @@ import { Link } from 'react-router-dom';
 export default function FooterTab() {
   return (
     <nav className='footer-container'>
-      <Link className='footer-item' to='/neighborhoods'>
-        <div className='material-icons'>account_circle</div>
-        <div className='context'>우리 동네</div>
+      <Link className='footer-item' to='/neighborhoods' aria-label='우리 동네'>
+        <span className='material-icons' aria-hidden='true'>
+          account_circle
+        </span>
+        <span className='context'>우리 동네</span>
       </Link>
-      <Link className='footer-item' to='/'>
-        <div className='material-icons'>language</div>
-        <div className='context'>동네별</div>
+      <Link className='footer-item' to='/' aria-label='동네별'>
+        <span className='material-icons' aria-hidden='true'>
+          language
+        </span>
+        <span className='context'>동네별</span>
       </Link>
-      <Link className='footer-item' to='/bookmark'>
-        <div className='material-icons'>bookmarks</div>
-        <div className='context'>즐겨찾기</div>
+      <Link className='footer-item' to='/bookmark' aria-label='즐겨찾기'>
+        <span className='material-icons' aria-hidden='true'>
+          bookmarks
+        </span>
+        <span className='context'>즐겨찾기</span>
       </Link>
     </nav>
   );

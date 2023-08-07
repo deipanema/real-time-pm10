@@ -1,6 +1,5 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { dataActions } from '../store';
+import { addBookmark, removeBookmark } from '../store/bookmarkSlice';
 
 export default function DustItem({
   stationName,
@@ -12,68 +11,63 @@ export default function DustItem({
 }) {
   const dispatch = useDispatch();
   const bookmarks = useSelector((state) => state.bookmarks);
+  const gradeContent = getGradeContent(pm10Grade, pm10Flag);
+  const isBookmarked = bookmarks.some(
+    (bookmark) => bookmark.stationName === stationName
+  );
 
-  const addBookmarks = () => {
-    dispatch(
-      dataActions.addBookmarks({
-        stationName,
-        sidoName,
-        pm10Grade,
-        pm10Value,
-        pm10Flag,
-        dataTime,
-      })
-    );
+  const handleBookmarkToggle = () => {
+    if (isBookmarked) {
+      dispatch(removeBookmark(stationName));
+    } else {
+      dispatch(
+        addBookmark({
+          stationName,
+          sidoName,
+          pm10Grade,
+          pm10Value,
+          pm10Flag,
+          dataTime,
+        })
+      );
+    }
   };
-
-  const deleteBookmarks = () => {
-    dispatch(dataActions.deleteBookmarks(stationName));
-  };
-
-  let gradeKor;
-  switch (pm10Grade) {
-    case '1':
-      gradeKor = '좋음';
-      break;
-    case '2':
-      gradeKor = '보통';
-      break;
-    case '3':
-      gradeKor = '나쁨';
-      break;
-    case '4':
-      gradeKor = '매우나쁨';
-      break;
-    default:
-      pm10Grade = '0';
-      gradeKor = pm10Flag ? pm10Flag : '알 수 없음';
-  }
 
   return (
-    <li className={['dust-item', `dust-item-color-${pm10Grade}`].join(' ')}>
-      <div className='card-title'>
-        <div className='h2'>{stationName}</div>
-        <div className='h3'>{sidoName}</div>
+    <li
+      className={[
+        'dust-item',
+        pm10Grade ? `dust-item-color-${pm10Grade}` : 'dust-item-color-0',
+      ].join(' ')}
+    >
+      <div className='title'>
+        <div className='stationName'>{stationName}</div>
+        <div className='sidoName'>{sidoName}</div>
         <div>
-          {bookmarks.some(
-            (bookmark) => bookmark.stationName === stationName
-          ) ? (
-            <div className='material-icons' onClick={deleteBookmarks}>
-              star
-            </div>
-          ) : (
-            <div className='material-icons' onClick={addBookmarks}>
-              star_outline
-            </div>
-          )}
+          <span
+            className='material-icons'
+            onClick={handleBookmarkToggle}
+            aria-label={isBookmarked ? '즐겨찾기 제거' : '즐겨찾기 추가'}
+          >
+            {isBookmarked ? 'star' : 'star_outline'}
+          </span>
         </div>
       </div>
       <div className='pm10-grade-container'>
         <span className='pm10-grade'>
-          <span className={`pm10-grade-content-${pm10Grade}`}>{gradeKor}</span>
+          <span
+            className={
+              pm10Grade
+                ? `pm10-grade-content-${pm10Grade}`
+                : 'pm10-grade-content-0'
+            }
+            aria-label={`미세먼지 등급: ${gradeContent}`}
+          >
+            {gradeContent}
+          </span>
         </span>
       </div>
-      <div className='content-container'>
+      <div className='pm10-grade-Info'>
         <p className='pm10-value'>
           {pm10Value === '-' || !pm10Value
             ? '측정소의 사정으로 미세먼지'
@@ -81,10 +75,25 @@ export default function DustItem({
         </p>
         <p className='date-time'>
           {pm10Value === '-' || !pm10Value
-            ? '정보를 가져올 수 없습니다.'
+            ? '정보를 가져올 수 없음'
             : `(${dataTime} 기준)`}
         </p>
       </div>
     </li>
   );
+}
+
+function getGradeContent(pm10Grade, pm10Flag) {
+  switch (pm10Grade) {
+    case '1':
+      return '좋음';
+    case '2':
+      return '보통';
+    case '3':
+      return '나쁨';
+    case '4':
+      return '매우나쁨';
+    default:
+      return pm10Flag ? pm10Flag : '알 수 없음';
+  }
 }

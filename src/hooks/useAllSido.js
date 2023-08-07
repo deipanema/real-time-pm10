@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
-import { networkErrorMessage } from '../utils/constants';
+import { DataFetchError } from '../constants/networkErrors';
 
-export default function useAllSido({ sidoName }) {
+export default function useAllSido(sidoName) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [dusts, setDusts] = useState([]);
 
-  const fetchData = async (sidoName) => {
-    const url = `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=${process.env.REACT_APP_AIRKOREA_API_KEY}&returnType=json&numOfRows=5&sidoName=${sidoName}&ver=1.0`;
+  // 시도별 실시간 측정정보 목록을 조회하는 함수
+  const fetchDustData = async (sidoName) => {
+    const url = `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=${process.env.REACT_APP_AIRKOREA_API_KEY}&returnType=json&numOfRows=5&sidoName=${sidoName}`;
     //const url = `/data/dust.json`;
 
     try {
@@ -15,16 +16,16 @@ export default function useAllSido({ sidoName }) {
       setError(null);
       const response = await fetch(url);
       const data = await response.json();
-      setDusts(data.response.body?.items || []);
+      setDusts(data.response.body.items || []);
     } catch (error) {
-      setError(`${sidoName} ${networkErrorMessage}`);
+      setError(`${sidoName} ${DataFetchError}`);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchData(sidoName);
+    fetchDustData(sidoName);
   }, [sidoName]);
 
   return [loading, error, dusts];

@@ -4,7 +4,7 @@ export default function Loading() {
       <img
         className='loading-spinner'
         src='https://media.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif'
-        alt='Loading Spinner'
+        alt='로딩중'
       />
     </div>
   );

@@ -1,6 +1,6 @@
-import { networkErrorMessage } from '../utils/constants';
-import ErrorStatusMessage from './ErrorStatusMessage';
+import { DataFetchError } from '../constants/networkErrors';
+import StatusMessage from './StatusMessage';
 
-export default function Error({ error = networkErrorMessage }) {
-  return <ErrorStatusMessage message={error} />;
+export default function Error({ error = DataFetchError }) {
+  return <StatusMessage message={error} />;
 }

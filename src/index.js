@@ -2,18 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { Provider } from 'react-redux';
-import store from './store/index';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import NotFound from './pages/NotFound';
+import PageNotFound from './pages/PageNotFound';
 import Nationwide from './pages/Nationwide';
 import Neighborhoods from './pages/Neighborhoods';
 import Bookmark from './pages/Bookmark';
+import store from './store/bookmarkStore';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <NotFound />,
+    errorElement: <PageNotFound />,
     children: [
       {
         index: true,

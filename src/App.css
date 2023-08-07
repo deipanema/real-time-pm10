@@ -30,6 +30,11 @@ body {
   display: none;
 }
 
+h1 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
 ul {
   list-style: none;
   padding-left: 0px;
@@ -45,30 +50,44 @@ ul {
 
 .status-container {
   position: relative;
-  display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
-  height: 150px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 37px;
+  text-align: center;
 }
 
 .status-container .emotion {
   font-family: 'Jua', sans-serif;
   font-size: 5rem;
   color: var(--color-bg);
+  margin-bottom: 7px;
 }
 
 .status-container .message {
-  position: absolute;
-  bottom: 0;
   font-family: 'Jua', sans-serif;
   font-size: 2rem;
   white-space: normal;
   word-break: break-all;
+  text-wrap: balance;
 }
 
 #root .loading-spinner {
   height: 100px;
+}
+
+.title-container {
+  font-family: 'Jua', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 37px;
+}
+
+.title-container .material-icons {
+  font-size: 30px;
+  margin-right: 10px;
 }
 
 /* HEADER */
@@ -92,7 +111,8 @@ header {
 .menu {
   display: flex;
   justify-content: flex-end;
-  margin: 20px 20px;
+  margin-top: 25px;
+  margin-right: 20px;
 }
 
 .menu .control-menu {
@@ -116,7 +136,7 @@ header {
   min-height: 150px;
 }
 
-.dust-item .card-title {
+.dust-item .title {
   display: flex;
   align-items: flex-end;
 }
@@ -129,12 +149,12 @@ header {
   cursor: pointer;
 }
 
-.dust-item .card-title .h2 {
+.dust-item .title .stationName {
   font-size: 25px;
   padding-right: 5px;
 }
 
-.dust-item .card-title .h3 {
+.dust-item .title .sidoName {
   font-size: 18px;
 }
 
@@ -149,12 +169,12 @@ header {
   font-size: 40px;
 }
 
-.content-container {
+.pm10-grade-Info {
   margin-top: 20px;
 }
 
-.content-container > p {
-  margin: 0;
+.pm10-grade-Info > p {
+  margin: 2px;
 }
 
 .dust-item-color-0 {
@@ -194,25 +214,7 @@ header {
   color: var(--color-grade4);
 }
 
-/* MY neighborhoods */
-.neighborhoods-title-container {
-  font-family: 'Jua', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-.neighborhoods-title-container .material-icons {
-  font-size: 30px;
-  margin-right: 10px;
-}
-
-.neighborhoods-title {
-  font-size: 35px;
-  font-weight: bold;
-}
-
+/* NEIGHBORHOODS */
 .neighborhoods-dataTime {
   font-size: 14px;
   color: var(--color-darkgray);
