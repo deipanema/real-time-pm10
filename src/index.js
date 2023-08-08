@@ -7,7 +7,9 @@ import PageNotFound from './pages/PageNotFound';
 import Nationwide from './pages/Nationwide';
 import Neighborhoods from './pages/Neighborhoods';
 import Bookmark from './pages/Bookmark';
-import store from './store/bookmarkStore';
+import store from './store/store';
+
+// import store from './store/bookmarkStore';
 
 const router = createBrowserRouter([
   {

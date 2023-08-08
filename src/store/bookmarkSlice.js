@@ -1,44 +1,44 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { updateBookmarks } from './bookmarkThunks';
+import { updateBookmarks } from './thunks'; // Thunk 액션 가져오기
 
-const initialState = { bookmarks: [] };
+const initialState = [];
 
 const bookmarkSlice = createSlice({
-  name: 'data',
+  name: 'bookmarks',
   initialState,
   reducers: {
     addBookmark(state, action) {
       if (
-        !state.bookmarks.some(
+        !state.some(
           (bookmark) => bookmark.stationName === action.payload.stationName
         )
       ) {
-        state.bookmarks.push(action.payload);
-        localStorage.setItem('bookmarkState', JSON.stringify(state));
+        state.push(action.payload);
+        localStorage.setItem('bookmark', JSON.stringify(state));
       }
     },
     removeBookmark(state, action) {
-      state.bookmarks = state.bookmarks.filter(
+      const updatedState = state.filter(
         (data) => data.stationName !== action.payload
       );
-      localStorage.setItem('bookmarkState', JSON.stringify(state));
+      localStorage.setItem('bookmark', JSON.stringify(updatedState));
+      return updatedState;
     },
     loadBookmarks(state) {
-      const storedState = localStorage.getItem('bookmarkState');
+      const storedState = localStorage.getItem('bookmark');
       if (storedState) {
-        const parsedState = JSON.parse(storedState);
-        state.bookmarks = parsedState.bookmarks;
+        return JSON.parse(storedState);
       }
+      return state;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(updateBookmarks.fulfilled, (state, action) => {
-      state.bookmarks = action.payload;
+    builder.addCase(updateBookmarks.fulfilled, (_, action) => {
+      return action.payload;
     });
   },
 });
 
 export const { addBookmark, removeBookmark, loadBookmarks } =
   bookmarkSlice.actions;
-
 export default bookmarkSlice.reducer;

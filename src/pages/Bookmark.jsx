@@ -1,11 +1,17 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DustCard from '../components/DustCard';
-import { updateBookmarks } from '../store/bookmarkThunks';
+import { loadBookmarks } from '../store/bookmarkSlice';
+import { updateBookmarks } from '../store/thunks';
 
 export default function Bookmark() {
   const dispatch = useDispatch();
-  const bookmarks = useSelector((state) => state.bookmarks);
+  const bookmarks = useSelector((state) => state);
+  console.log(bookmarks);
+
+  useEffect(() => {
+    dispatch(loadBookmarks());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(updateBookmarks());
