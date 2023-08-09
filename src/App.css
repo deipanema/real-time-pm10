@@ -3,7 +3,7 @@
   --color-grey: #f3f0f0;
   --color-bg: #dfdfdf;
   --color-darkgray: #6b6b6b;
-  --color-text: #030205;
+  --color-text: #333333;
   --color-grade0: #8f8f8f;
   --color-grade1: #32a1ff;
   --color-grade2: #00c73c;
@@ -45,7 +45,10 @@ ul {
   width: 100%;
   margin: 0 auto;
   min-height: 100vh;
-  margin-bottom: 70px;
+}
+
+.dust-info {
+  margin-bottom: 120px;
 }
 
 .status-container {
@@ -123,6 +126,27 @@ header {
   background-color: var(--color-grey);
   cursor: pointer;
   outline: none;
+}
+
+/* VIEW MORE BUTTON */
+.view-more {
+  margin: 20px auto;
+  display: block;
+  padding: 15px 40px;
+  background-color: var(--color-white);
+  color: var(--color-text);
+  border: 2px solid var(--color-text);
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.view-more:hover {
+  background-color: var(--color-text);
+  color: var(--color-white);
+  border-color: var(--color-text);
 }
 
 /* DUST ITEM */

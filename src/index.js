@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { Provider } from 'react-redux';
@@ -8,8 +7,6 @@ import Nationwide from './pages/Nationwide';
 import Neighborhoods from './pages/Neighborhoods';
 import Bookmark from './pages/Bookmark';
 import store from './store/store';
-
-// import store from './store/bookmarkStore';
 
 const router = createBrowserRouter([
   {

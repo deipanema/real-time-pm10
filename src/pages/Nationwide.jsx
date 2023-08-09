@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ControlMenu from '../components/ControlMenu';
 import DustCard from '../components/DustCard';
 import useAllSido from '../hooks/useAllSido';
@@ -7,9 +7,21 @@ import Loading from '../components/Loading';
 
 export default function Nationwide() {
   const [selectedSido, setSelectedSido] = useState(sidos[0].value);
-  const [loading, error, dusts] = useAllSido(selectedSido);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loading, error, dusts] = useAllSido(selectedSido, currentPage);
+  const maxPage = Math.ceil(Number(dusts.totalCount) / DUSTS_PER_PAGE);
 
-  if (loading) return <Loading />;
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedSido]);
+
+  const loadMoreDusts = () => {
+    if (currentPage < maxPage) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  if (loading && currentPage === 1) return <Loading />;
   if (error) return <Error error={error} />;
 
   return (
@@ -21,16 +33,23 @@ export default function Nationwide() {
           onChange={setSelectedSido}
         />
       </div>
-      {dusts.length !== 0 && (
+      {dusts.items.length !== 0 && (
         <ul>
-          {dusts.map((dust) => (
-            <DustCard key={`${dust.stationName}`} {...dust} />
+          {dusts.items.map((dust, index) => (
+            <DustCard key={`${dust.stationName}-${index}`} {...dust} />
           ))}
         </ul>
+      )}
+      {currentPage < maxPage && (
+        <button className='view-more' onClick={loadMoreDusts}>
+          더보기
+        </button>
       )}
     </main>
   );
 }
+
+const DUSTS_PER_PAGE = 10;
 
 const sidos = [
   { name: '전국', value: '전국' },

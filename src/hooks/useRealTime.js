@@ -25,7 +25,6 @@ export default function useRealTime() {
       const realTimeData = await getRealTimeStation(
         nearbyStationData.response.body.items[0].stationName
       );
-      console.log(realTimeData);
       setPM10Data(realTimeData.response.body.items[0]);
     } catch (error) {
       setError(`우리동네 ${DataFetchError}`);

@@ -7,20 +7,16 @@ import { updateBookmarks } from '../store/thunks';
 export default function Bookmark() {
   const dispatch = useDispatch();
   const bookmarks = useSelector((state) => state);
-  console.log(bookmarks);
 
   useEffect(() => {
     dispatch(loadBookmarks());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(updateBookmarks());
   }, [dispatch]);
 
   return (
     <main className='dust-info'>
       <div className='title-container'>
-        <h1>즐겨찾기 목록</h1>
+        <h1>즐겨찾는 지역</h1>
       </div>
       <section>
         {bookmarks.length === 0 ? (

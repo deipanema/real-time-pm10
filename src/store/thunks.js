@@ -6,7 +6,6 @@ export const updateBookmarks = createAsyncThunk(
   'bookmarks/updateBookmarks',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-
     const updatedBookmarks = [];
 
     for (const bookmark of state) {
