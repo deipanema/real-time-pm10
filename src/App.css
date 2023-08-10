@@ -37,7 +37,7 @@ h1 {
 
 ul {
   list-style: none;
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 #root {
@@ -59,6 +59,8 @@ ul {
   margin: 0 auto;
   margin-top: 37px;
   text-align: center;
+  white-space: normal;
+  word-break: break-all;
 }
 
 .status-container .emotion {
@@ -71,13 +73,11 @@ ul {
 .status-container .message {
   font-family: 'Jua', sans-serif;
   font-size: 2rem;
-  white-space: normal;
-  word-break: break-all;
   text-wrap: balance;
 }
 
 #root .loading-spinner {
-  height: 100px;
+  height: 200px;
 }
 
 .title-container {
@@ -107,7 +107,7 @@ header {
   height: 80px;
   padding: 20px 15px;
   border-bottom: 1px solid var(--color-bg);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px #00000026;
 }
 
 /* SELECT BOX */
@@ -149,7 +149,7 @@ header {
   border-color: var(--color-text);
 }
 
-/* DUST ITEM */
+/* DUST CARD */
 .dust-card {
   position: relative;
   color: var(--color-white);
@@ -165,6 +165,15 @@ header {
   align-items: flex-end;
 }
 
+.dust-card .title .stationName {
+  font-size: 25px;
+  padding-right: 5px;
+}
+
+.dust-card .title .sidoName {
+  font-size: 18px;
+}
+
 .dust-card .material-icons {
   position: absolute;
   font-size: 30px;
@@ -173,13 +182,10 @@ header {
   cursor: pointer;
 }
 
-.dust-card .title .stationName {
-  font-size: 25px;
-  padding-right: 5px;
-}
-
-.dust-card .title .sidoName {
-  font-size: 18px;
+.dust-card .material-icons:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .pm10-grade-container {
@@ -259,20 +265,22 @@ header {
 .neighborhoods-pm10-grade-image {
   display: flex;
   justify-content: center;
-  max-width: 100%;
   overflow: hidden;
 }
 
 .neighborhoods-pm10-grade-image img {
-  height: 16em;
+  width: 60%;
 }
 
 .neighborhoods-container {
+  min-height: 100vh;
+  overflow-y: auto;
   text-align: center;
 }
 
 .neighborhoods-pm10-info-container {
   font-family: 'Jua', sans-serif;
+  margin-top: 10px;
 }
 
 .neighborhoods-pm10-value {
@@ -307,8 +315,8 @@ header {
   border-top: 1px solid var(--color-bg);
   display: flex;
   position: fixed;
-  right: 0px;
-  left: 0px;
+  right: 0;
+  left: 0;
   bottom: 0;
   height: 85px;
   background: var(--color-grey);
@@ -325,6 +333,12 @@ header {
   text-decoration: none;
   color: var(--color-darkgray);
   font-size: 18px;
+  font-weight: normal;
+}
+
+.footer-item:hover {
+  color: var(--color-text);
+  font-weight: bold;
 }
 
 .material-icons {
@@ -333,6 +347,27 @@ header {
 
 .context {
   font-family: 'Jua', sans-serif;
+}
+
+/* SKELETON */
+.skeleton-loader {
+  background: linear-gradient(
+    90deg,
+    var(--color-grey) 25%,
+    var(--color-bg) 50%,
+    var(--color-grey) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 @media (min-width: 768px) {

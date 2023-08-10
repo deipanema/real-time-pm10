@@ -3,7 +3,7 @@ import ControlMenu from '../components/ControlMenu';
 import DustCard from '../components/DustCard';
 import useAllSido from '../hooks/useAllSido';
 import Error from '../components/Error';
-import Loading from '../components/Loading';
+import SkeletonLoading from '../components/SkeletonLoading';
 
 export default function Nationwide() {
   const [selectedSido, setSelectedSido] = useState(sidos[0].value);
@@ -21,7 +21,6 @@ export default function Nationwide() {
     }
   };
 
-  if (loading && currentPage === 1) return <Loading />;
   if (error) return <Error error={error} />;
 
   return (
@@ -33,17 +32,23 @@ export default function Nationwide() {
           onChange={setSelectedSido}
         />
       </div>
-      {dusts.items.length !== 0 && (
-        <ul>
-          {dusts.items.map((dust, index) => (
-            <DustCard key={`${dust.stationName}-${index}`} {...dust} />
-          ))}
-        </ul>
-      )}
-      {currentPage < maxPage && (
-        <button className='view-more' onClick={loadMoreDusts}>
-          더보기
-        </button>
+      {loading && currentPage === 1 ? (
+        <SkeletonLoading count={DUSTS_PER_PAGE} />
+      ) : (
+        <>
+          {dusts.items.length !== 0 && (
+            <ul>
+              {dusts.items.map((dust, index) => (
+                <DustCard key={`${dust.stationName}-${index}`} {...dust} />
+              ))}
+            </ul>
+          )}
+          {currentPage < maxPage && (
+            <button className='view-more' onClick={loadMoreDusts}>
+              {loading ? '로딩중...' : '더보기'}
+            </button>
+          )}
+        </>
       )}
     </main>
   );

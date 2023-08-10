@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
+import request from '../apis/request';
 import { DataFetchError } from '../constants/networkErrors';
 
 export default function useAllSido(sidoName, pageNo) {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [dusts, setDusts] = useState({
     totalCount: 1,
@@ -16,11 +17,8 @@ export default function useAllSido(sidoName, pageNo) {
     const url = `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=${process.env.REACT_APP_AIRKOREA_API_KEY}&returnType=json&numOfRows=${DUSTS_PER_PAGE}&sidoName=${sidoName}&pageNo=${pageNo}`;
 
     try {
-      setLoading(true);
       setError(null);
-      const response = await fetch(url);
-      const data = await response.json();
-
+      const data = await request(url);
       const { totalCount, items, pageNo, numOfRows } = data.response.body;
       if (pageNo === 1) {
         setDusts({
@@ -45,6 +43,7 @@ export default function useAllSido(sidoName, pageNo) {
   };
 
   useEffect(() => {
+    setLoading(true);
     fetchDustData(sidoName, pageNo);
   }, [sidoName, pageNo]);
 

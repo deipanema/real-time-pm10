@@ -8,11 +8,8 @@ export default async function request(url, options = {}) {
       throw new Error(DataFetchError);
     }
 
-    const data = await res.json();
-
-    return data;
+    return await res.json();
   } catch (error) {
     console.error(error);
-    throw new Error(DataFetchError);
   }
 }

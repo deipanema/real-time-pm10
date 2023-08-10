@@ -7,8 +7,8 @@ export default function ControlMenu({ list, value, onChange }) {
       value={value}
       onChange={(e) => onChange(e.target.value)}
     >
-      {list.map((option, index) => (
-        <option key={index} value={option.value}>
+      {list.map((option) => (
+        <option key={option.value} value={option.value}>
           {option.name}
         </option>
       ))}

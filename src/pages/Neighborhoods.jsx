@@ -5,12 +5,12 @@ import Pm10Image from '../components/Pm10Image';
 
 export default function Neighborhoods() {
   const [loading, error, nearestStation, pm10Data] = useRealTime();
-  const { dataTime, pm10Grade, pm10Value, pm10Flag } = pm10Data;
-
-  const [gradeContent, gradeDescription] = getGradeContent(pm10Grade, pm10Flag);
 
   if (error) return <Error error={error} />;
   if (loading) return <Loading />;
+
+  const { dataTime, pm10Grade, pm10Value, pm10Flag } = pm10Data;
+  const [gradeContent, gradeDescription] = getGradeContent(pm10Grade, pm10Flag);
 
   return (
     <main className='neighborhoods-container'>

@@ -11,9 +11,7 @@ export default function DustCard({
 }) {
   const dispatch = useDispatch();
   const bookmarks = useSelector((state) => state);
-
   const gradeContent = getGradeContent(pm10Grade, pm10Flag);
-
   const isBookmarked = bookmarks.some(
     (bookmark) => bookmark.stationName === stationName
   );
