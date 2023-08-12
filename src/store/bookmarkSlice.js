@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { updateBookmarks } from './thunks'; // Thunk 액션 가져오기
+import { updateBookmarks } from './thunks';
 
 const initialState = [];
 
@@ -8,14 +8,15 @@ const bookmarkSlice = createSlice({
   initialState,
   reducers: {
     addBookmark(state, action) {
-      if (
-        !state.some(
-          (bookmark) => bookmark.stationName === action.payload.stationName
-        )
-      ) {
-        state.push(action.payload);
-        localStorage.setItem('bookmark', JSON.stringify(state));
+      const existingBookmark = state.find(
+        (bookmark) => bookmark.stationName === action.payload.stationName
+      );
+      if (!existingBookmark) {
+        const updatedState = [...state, action.payload];
+        localStorage.setItem('bookmark', JSON.stringify(updatedState));
+        return updatedState;
       }
+      return state;
     },
     removeBookmark(state, action) {
       const updatedState = state.filter(

@@ -50,4 +50,4 @@ export default function useAllSido(sidoName, pageNo) {
   return [loading, error, dusts];
 }
 
-const DUSTS_PER_PAGE = 10;
+export const DUSTS_PER_PAGE = 10;

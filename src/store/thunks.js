@@ -24,6 +24,7 @@ export const updateBookmarks = createAsyncThunk(
         });
       } catch (error) {
         console.error(`${bookmark.stationName} ${DataFetchError}`);
+        updatedBookmarks.push(bookmark);
       }
     }
 

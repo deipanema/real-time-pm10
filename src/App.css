@@ -1,9 +1,9 @@
 :root {
-  --color-white: #fff;
+  --color-white: #ffffff;
   --color-grey: #f3f0f0;
   --color-bg: #dfdfdf;
   --color-darkgray: #6b6b6b;
-  --color-text: #333333;
+  --color-text: #25272c;
   --color-grade0: #8f8f8f;
   --color-grade1: #32a1ff;
   --color-grade2: #00c73c;
@@ -77,7 +77,7 @@ ul {
 }
 
 #root .loading-spinner {
-  height: 200px;
+  height: 100px;
 }
 
 .title-container {
@@ -269,7 +269,7 @@ header {
 }
 
 .neighborhoods-pm10-grade-image img {
-  width: 60%;
+  width: 45%;
 }
 
 .neighborhoods-container {

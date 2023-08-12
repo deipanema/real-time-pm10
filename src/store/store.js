@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import bookmarkReducer from './bookmarkSlice'; // Slice 리듀서 가져오기
+import bookmarkReducer from './bookmarkSlice';
 
 const store = configureStore({
   reducer: bookmarkReducer,

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import ControlMenu from '../components/ControlMenu';
 import DustCard from '../components/DustCard';
-import useAllSido from '../hooks/useAllSido';
+import useAllSido, { DUSTS_PER_PAGE } from '../hooks/useAllSido';
 import Error from '../components/Error';
 import SkeletonLoading from '../components/SkeletonLoading';
 
@@ -53,8 +53,6 @@ export default function Nationwide() {
     </main>
   );
 }
-
-const DUSTS_PER_PAGE = 10;
 
 const sidos = [
   { name: '전국', value: '전국' },
