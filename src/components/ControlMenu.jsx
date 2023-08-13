@@ -1,4 +1,4 @@
-export default function ControlMenu({ list, value, onChange }) {
+export default function ControlMenu({ list, value, onChange, defaultValue }) {
   return (
     <select
       aria-label='동네별'
@@ -6,6 +6,7 @@ export default function ControlMenu({ list, value, onChange }) {
       className='control-menu'
       value={value}
       onChange={(e) => onChange(e.target.value)}
+      defaultValue={defaultValue}
     >
       {list.map((option) => (
         <option key={option.value} value={option.value}>
