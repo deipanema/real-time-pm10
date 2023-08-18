@@ -1,5 +1,5 @@
-<div style="text-align: center;">
-  <img src="public/images/brand.png" alt="제목" style="width: 250px;" />
+<div align="middle" >
+  <img src="public/images/brand.png" alt="제목" style="width: 350px;" />
   <p>“미세먼지 알리미”는 내 위치 및 시도별로 미세먼지 데이터를 실시간으로 모니터링하고,<br/> 관심 있는 지역을 즐겨찾기로 저장할 수 있는 웹 애플리케이션입니다.</p>
 </div>
 
@@ -8,7 +8,7 @@
 ### 프로젝트를 로컬 환경에 복제합니다.
 
 ```bash
-$ git clone
+$ git clone https://github.com/deipanema/real-time-pm10.git
 ```
 
 ### 다음 명령을 실행하여 필요한 패키지를 설치합니다.
