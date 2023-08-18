@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+<div style="text-align: center;">
+  <img src="src/asset/brand.png" alt="제목" style="width: 250px;" />
+  <img src="src/asset/brd.png" alt="제목" />
+  <p>“미세먼지 알리미”는 내 위치 및 시도별로 미세먼지 데이터를 실시간으로 모니터링하고,<br/> 관심 있는 지역을 즐겨찾기로 저장할 수 있는 웹 애플리케이션입니다.</p>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. 시작하기
 
-## Available Scripts
+### 1.1 프로젝트를 로컬 환경에 복제합니다.
 
-In the project directory, you can run:
+```bash
+$ git clone
+```
 
-### `yarn start`
+### 1.2 다음 명령을 실행하여 필요한 패키지를 설치합니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+$ yarn install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1.3 프로젝트 루트 디렉토리에 `.env` 파일을 생성하고, 아래와 같이 환경 변수를 설정합니다.
 
-### `yarn test`
+```
+REACT_APP_KAKAO_API_KEY=c8fbc4149b338ac6592a2d5757b5df6e
+REACT_APP_AIRKOREA_API_KEY=1IJkAaFv8pgTv9qKNA2InjqJtlo5%2B9YfltWIuv8zmeZLjZ98UOGK8AX%2FvOHDQq9cWasRyLkEKN1pIi7U7R20TQ%3D%3D
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1.4 다음 명령으로 개발 서버를 시작합니다.
 
-### `yarn build`
+```bash
+$ yarn start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 2. 기술 스택
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **React Router:** 페이지 라우팅
+- **REST API:** 미세먼지 관련 데이터 호출
+- **Redux Toolkit:** 즐겨찾기 데이터 상태 관리
+- **Redux Thunk:** 즐겨찾기 실시간 업데이트
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 3. 주요 기능
 
-### `yarn eject`
+### 3.1 동네별 미세먼지 정보 확인
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![동네별 메시먼지 정보 확인](public/screenshots/Nationwide.gif)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 사용자는 각 측정소별로 미세먼지 농도와 등급을 확인할 수 있습니다.
+- 데이터를 더 가져오기 위한 더보기 버튼 클릭 시 “로딩중…” 문구로 데이터를 호출 로딩을 인지할 수 있습니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3.2 내 위치 근처 미세먼지 정보 확인
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![근처 지역의 미세먼지 정보 확인](public/screenshots/Neighborhoods.gif)
 
-## Learn More
+- 사용자 근처 측정소의 실시간 미세먼지 정보를 API로부터 가져옵니다. 미세먼지 등급에 따라 시각적인(이미지, 색상) 이미지로 상태를 표시합니다.
+- 미세먼지 농도, 등급, 최종 업데이트 시간 등을 포함합니다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3.3 즐겨찾는 지역
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![즐겨찾는 지역](public/screenshots/Bookmark.gif)
 
-### Code Splitting
+- 사용자는 즐겨찾는 지역을 추가하거나 삭제할 수 있습니다.
+- 예외 상황에는 적절한 메시지를 표시합니다.
+- 즐겨찾기는 로컬 스토리지에 저장되어 유지됩니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3.4 즐겨찾기 실시간 업데이트
 
-### Analyzing the Bundle Size
+![20:00 저장한 즐겨찾기가 실시간 API 호출로 21:00 데이터로 업데이트](public/screenshots/BookmarkRealTime.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- 즐겨찾기는 최신 정보로 즉시 업데이트됩니다.
 
-### Making a Progressive Web App
+## 4. 저작권 표시
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 4.1 사용한 Open API 출처:
 
-### Advanced Configuration
+1. 한국환경공단 에어코리아 API - 미세먼지 정보를 가져오기 위해 사용했습니다.
+   - API 문서: [한국환경공단 에어코리아 API 문서](https://drive.google.com/drive/folders/141g2lcQmCuGBEjEBvfPUNe2xBfy4jDDx?usp=sharing)
+   - 제공: 공공 데이터 포털 (https://www.data.go.kr/)
+2. Kakao Developers API - 사용자의 위치 정보를 가져오기 위해 사용했습니다.
+   - API 문서: [Kakao Developers API 문서](https://developers.kakao.com/docs/latest/ko/local/dev-guide#trans-coord)
+   - 제공: Kakao Developers (https://developers.kakao.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 4.2 이미지 출처:
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. favicon.ico
+   - 이미지 출처: [ICONS](https://icons8.com/icon/set/messaging/3d-fluency)
+2. brand.png
+   - 이미지 출처: 컬러풀한 템플릿 타이틀 [miri canvas](https://www.miricanvas.com/)
+3. loading.gif
+   - 이미지 출처: [loading.io](https://loading.io/)
+4. good.gif, moderate.gif, bad.gif, very-bad.gif, error.gif
+   - 이미지 출처: [Giphy](https://giphy.com/Emoji)

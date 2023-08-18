@@ -95,7 +95,7 @@ ul {
 
 /* HEADER */
 .header-container {
-  background-image: url('./asset/brand.png');
+  background-image: url('../public/images/brand.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
