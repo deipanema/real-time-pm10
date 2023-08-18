@@ -5,29 +5,22 @@
 
 ## 1. 시작하기
 
-### 프로젝트를 로컬 환경에 복제합니다.
-
 ```bash
+# 프로젝트를 로컬 환경에 복제합니다.
 $ git clone https://github.com/deipanema/real-time-pm10.git
-```
 
-### 다음 명령을 실행하여 필요한 패키지를 설치합니다.
-
-```bash
+# 다음 명령을 실행하여 필요한 패키지를 설치합니다.
 $ yarn install
+
+# 다음 명령으로 개발 서버를 시작합니다.
+$ yarn start
 ```
 
-### 프로젝트 루트 디렉토리에 `.env` 파일을 생성하고, 아래와 같이 환경 변수를 설정합니다.
+프로젝트 루트 디렉토리에 `.env` 파일을 생성하고, 아래와 같이 환경 변수를 설정합니다.
 
-```
+```sql
 REACT_APP_KAKAO_API_KEY=c8fbc4149b338ac6592a2d5757b5df6e
 REACT_APP_AIRKOREA_API_KEY=1IJkAaFv8pgTv9qKNA2InjqJtlo5%2B9YfltWIuv8zmeZLjZ98UOGK8AX%2FvOHDQq9cWasRyLkEKN1pIi7U7R20TQ%3D%3D
-```
-
-### 다음 명령으로 개발 서버를 시작합니다.
-
-```bash
-$ yarn start
 ```
 
 ## 2. 기술 스택
