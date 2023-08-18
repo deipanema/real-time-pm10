@@ -1,31 +1,30 @@
 <div style="text-align: center;">
-  <img src="src/asset/brand.png" alt="제목" style="width: 250px;" />
-  <img src="src/asset/brd.png" alt="제목" />
+  <img src="public/images/brand.png" alt="제목" style="width: 250px;" />
   <p>“미세먼지 알리미”는 내 위치 및 시도별로 미세먼지 데이터를 실시간으로 모니터링하고,<br/> 관심 있는 지역을 즐겨찾기로 저장할 수 있는 웹 애플리케이션입니다.</p>
 </div>
 
 ## 1. 시작하기
 
-### 1.1 프로젝트를 로컬 환경에 복제합니다.
+### 프로젝트를 로컬 환경에 복제합니다.
 
 ```bash
 $ git clone
 ```
 
-### 1.2 다음 명령을 실행하여 필요한 패키지를 설치합니다.
+### 다음 명령을 실행하여 필요한 패키지를 설치합니다.
 
 ```bash
 $ yarn install
 ```
 
-### 1.3 프로젝트 루트 디렉토리에 `.env` 파일을 생성하고, 아래와 같이 환경 변수를 설정합니다.
+### 프로젝트 루트 디렉토리에 `.env` 파일을 생성하고, 아래와 같이 환경 변수를 설정합니다.
 
 ```
 REACT_APP_KAKAO_API_KEY=c8fbc4149b338ac6592a2d5757b5df6e
 REACT_APP_AIRKOREA_API_KEY=1IJkAaFv8pgTv9qKNA2InjqJtlo5%2B9YfltWIuv8zmeZLjZ98UOGK8AX%2FvOHDQq9cWasRyLkEKN1pIi7U7R20TQ%3D%3D
 ```
 
-### 1.4 다음 명령으로 개발 서버를 시작합니다.
+### 다음 명령으로 개발 서버를 시작합니다.
 
 ```bash
 $ yarn start
@@ -33,10 +32,11 @@ $ yarn start
 
 ## 2. 기술 스택
 
-- **React Router:** 페이지 라우팅
-- **REST API:** 미세먼지 관련 데이터 호출
 - **Redux Toolkit:** 즐겨찾기 데이터 상태 관리
 - **Redux Thunk:** 즐겨찾기 실시간 업데이트
+- **REST API:** 미세먼지 관련 데이터 호출
+- **React Router:** 페이지 라우팅
+- **CRA(Create React App):** 프로젝트 초기 구조 및 설정
 
 ## 3. 주요 기능
 
