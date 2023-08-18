@@ -30,7 +30,6 @@ export default function Nationwide() {
           list={sidos}
           value={selectedSido}
           onChange={setSelectedSido}
-          defaultValue={sidos[0].value}
         />
       </div>
       {loading && currentPage === 1 ? (
