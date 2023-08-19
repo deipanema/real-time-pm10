@@ -9,4 +9,4 @@ export default function StatusMessage({ message }) {
   );
 }
 
-const emotions = ['(⊙x⊙;)', '＞﹏＜', 'இ௰இ', '(⊙_⊙)？', '( ͠° ͟ʖ ͡°)', '(⓿_⓿)'];
+const emotions = ['(⊙x⊙;)', '＞﹏＜', 'இ௰இ', '( ͠° ͟ʖ ͡°)', '(⓿_⓿)'];
