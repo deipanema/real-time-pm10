@@ -188,15 +188,15 @@ header {
   cursor: pointer;
 }
 
-.pm10-grade-container {
-  margin: 23px auto;
-}
-
 .dust-card .pm10-grade {
   padding: 5px 10px;
   border-radius: 8px;
   background-color: var(--color-white);
   font-size: 40px;
+}
+
+.pm10-grade-container {
+  margin: 23px auto;
 }
 
 .pm10-grade-Info {
