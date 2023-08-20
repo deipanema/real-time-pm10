@@ -5,7 +5,7 @@
 
 ## 1. 시작하기
 
-```bash
+```YAML
 # 프로젝트를 로컬 환경에 복제합니다.
 $ git clone https://github.com/deipanema/real-time-pm10.git
 
@@ -65,20 +65,20 @@ REACT_APP_AIRKOREA_API_KEY=1IJkAaFv8pgTv9qKNA2InjqJtlo5%2B9YfltWIuv8zmeZLjZ98UOG
 
 ### 4.1 사용한 Open API 출처:
 
-1. 한국환경공단 에어코리아 API - 미세먼지 정보를 가져오기 위해 사용했습니다.
-   - API 문서: [한국환경공단 에어코리아 API 문서](https://drive.google.com/drive/folders/141g2lcQmCuGBEjEBvfPUNe2xBfy4jDDx?usp=sharing)
-   - 제공: 공공 데이터 포털 (https://www.data.go.kr/)
-2. Kakao Developers API - 사용자의 위치 정보를 가져오기 위해 사용했습니다.
-   - API 문서: [Kakao Developers API 문서](https://developers.kakao.com/docs/latest/ko/local/dev-guide#trans-coord)
-   - 제공: Kakao Developers (https://developers.kakao.com/)
+- 한국환경공단 에어코리아 API - 미세먼지 정보를 가져오기 위해 사용했습니다.
+  - API 문서: [한국환경공단 에어코리아 API 문서](https://drive.google.com/drive/folders/141g2lcQmCuGBEjEBvfPUNe2xBfy4jDDx?usp=sharing)
+  - 제공: 공공 데이터 포털 (https://www.data.go.kr/)
+- Kakao Developers API - 사용자의 위치 정보를 가져오기 위해 사용했습니다.
+  - API 문서: [Kakao Developers API 문서](https://developers.kakao.com/docs/latest/ko/local/dev-guide#trans-coord)
+  - 제공: Kakao Developers (https://developers.kakao.com/)
 
 ### 4.2 이미지 출처:
 
-1. favicon.ico
-   - 이미지 출처: [ICONS](https://icons8.com/icon/set/messaging/3d-fluency)
-2. brand.png
-   - 이미지 출처: 컬러풀한 템플릿 타이틀 [miri canvas](https://www.miricanvas.com/)
-3. loading.gif
-   - 이미지 출처: [loading.io](https://loading.io/)
-4. good.gif, moderate.gif, bad.gif, very-bad.gif, error.gif
-   - 이미지 출처: [Giphy](https://giphy.com/Emoji)
+- favicon.ico
+  - 이미지 출처: [ICONS](https://icons8.com/icon/set/messaging/3d-fluency)
+- brand.png
+  - 이미지 출처: 컬러풀한 템플릿 타이틀 [miri canvas](https://www.miricanvas.com/)
+- loading.gif
+  - 이미지 출처: [loading.io](https://loading.io/)
+- good.gif, moderate.gif, bad.gif, very-bad.gif, error.gif
+  - 이미지 출처: [Giphy](https://giphy.com/Emoji)

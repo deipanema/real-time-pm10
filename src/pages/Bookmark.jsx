@@ -16,7 +16,7 @@ export default function Bookmark() {
   return (
     <main className='dust-info'>
       <div className='title-container'>
-        <h1>즐겨찾는 지역</h1>
+        <h1 className='font-jua'>즐겨찾는 지역</h1>
       </div>
       <section>
         {bookmarks.length === 0 ? (

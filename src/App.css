@@ -26,6 +26,10 @@ body {
   -ms-overflow-style: none;
 }
 
+.font-jua {
+  font-family: 'Jua', sans-serif;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -81,7 +85,6 @@ ul {
 }
 
 .title-container {
-  font-family: 'Jua', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -279,7 +282,6 @@ header {
 }
 
 .neighborhoods-pm10-info-container {
-  font-family: 'Jua', sans-serif;
   margin-top: 10px;
 }
 
@@ -343,10 +345,6 @@ header {
 
 .material-icons {
   margin-bottom: 5px;
-}
-
-.context {
-  font-family: 'Jua', sans-serif;
 }
 
 /* SKELETON */

@@ -37,10 +37,10 @@ export default function Neighborhoods() {
             : 'pm10-grade-content-0',
         ].join(' ')}
       >
-        <span className='neighborhoods-pm10-value' title='수치'>
+        <span className='neighborhoods-pm10-value font-jua' title='수치'>
           {pm10Value !== '-' ? pm10Value : ''}
         </span>
-        <span className='neighborhoods-pm10-grade' title='등급'>
+        <span className='neighborhoods-pm10-grade font-jua' title='등급'>
           {pm10Grade ? gradeContent : '알 수 없음'}
         </span>
       </div>
