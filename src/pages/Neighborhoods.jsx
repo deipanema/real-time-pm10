@@ -18,7 +18,7 @@ export default function Neighborhoods() {
         <span className='material-icons' aria-hidden='true'>
           location_pin
         </span>
-        <h1>{nearestStation.stationName} 측정소</h1>
+        <h1 className='font-jua'>{nearestStation.stationName} 측정소</h1>
       </div>
       <p className='neighborhoods-dataTime'>
         {dataTime ? `${dataTime} 업데이트` : ''}
