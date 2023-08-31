@@ -25,8 +25,8 @@ REACT_APP_AIRKOREA_API_KEY=1IJkAaFv8pgTv9qKNA2InjqJtlo5%2B9YfltWIuv8zmeZLjZ98UOG
 
 ## 2. 기술 스택
 
-- **Redux Toolkit:** 즐겨찾기 데이터 상태 관리
-- **Redux Thunk:** 즐겨찾기 실시간 업데이트
+- **Redux toolkit:** 즐겨찾기 데이터 상태 관리
+- **Redux toolkit Thunk:** 즐겨찾기 실시간 업데이트
 - **REST API:** 미세먼지 관련 데이터 호출
 - **React Router:** 페이지 라우팅
 - **CRA(Create React App):** 프로젝트 초기 구조 및 설정
