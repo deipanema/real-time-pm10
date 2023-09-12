@@ -146,12 +146,6 @@ header {
   transition: background-color 0.3s, color 0.3s;
 }
 
-.view-more:hover {
-  background-color: var(--color-text);
-  color: var(--color-white);
-  border-color: var(--color-text);
-}
-
 /* DUST CARD */
 .dust-card {
   position: relative;
@@ -379,5 +373,11 @@ header {
 
   .footer-container {
     width: 50%;
+  }
+
+  .view-more:hover {
+    background-color: var(--color-text);
+    color: var(--color-white);
+    border-color: var(--color-text);
   }
 }
