@@ -7,7 +7,7 @@ import { DataFetchError } from '../constants/networkErrors';
 export default function useRealTime() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [nearestStation, setNearestStation] = useState('');
+  const [nearbyStation, setNearbyStation] = useState('');
   const [pm10Data, setPM10Data] = useState({});
 
   // 근접 측정소와 실시간 측정 정보를 조회하는 함수
@@ -20,7 +20,7 @@ export default function useRealTime() {
       const { x, y } = locationData.documents[0];
 
       const nearbyStationData = await getNearbyStation(x, y);
-      setNearestStation(nearbyStationData.response.body.items[0]);
+      setNearbyStation(nearbyStationData.response.body.items[0]);
 
       const realTimeData = await getRealTimeStation(
         nearbyStationData.response.body.items[0].stationName
@@ -35,7 +35,7 @@ export default function useRealTime() {
 
   useEffect(() => {
     const success = async (position) => {
-      fetchRealTimeData(position);
+      await fetchRealTimeData(position);
     };
 
     const error = () => {
@@ -51,5 +51,5 @@ export default function useRealTime() {
     }
   }, []);
 
-  return [loading, error, nearestStation, pm10Data];
+  return [loading, error, nearbyStation, pm10Data];
 }

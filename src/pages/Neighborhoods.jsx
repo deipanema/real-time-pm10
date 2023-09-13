@@ -4,7 +4,7 @@ import Loading from '../components/Loading';
 import Pm10GradeImage from '../components/Pm10GradeImage';
 
 export default function Neighborhoods() {
-  const [loading, error, nearestStation, pm10Data] = useRealTime();
+  const [loading, error, nearbyStation, pm10Data] = useRealTime();
 
   if (error) return <Error error={error} />;
   if (loading) return <Loading />;
@@ -18,7 +18,7 @@ export default function Neighborhoods() {
         <span className='material-icons' aria-hidden='true'>
           location_pin
         </span>
-        <h1 className='font-jua'>{nearestStation.stationName} 측정소</h1>
+        <h1 className='font-jua'>{nearbyStation.stationName} 측정소</h1>
       </div>
       <p className='neighborhoods-dataTime'>
         {dataTime ? `${dataTime} 업데이트` : ''}
