@@ -1,7 +1,7 @@
 import useRealTime from '../hooks/useRealTime';
 import Error from '../components/Error';
 import Loading from '../components/Loading';
-import Pm10GradeImage from '../components/Pm10GradeImage';
+import PM10GradeImage from '../components/PM10GradeImage';
 
 export default function Neighborhoods() {
   const [loading, error, nearbyStation, pm10Data] = useRealTime();
@@ -27,7 +27,7 @@ export default function Neighborhoods() {
         <p className='neighborhoods-description'>{gradeDescription}</p>
       </div>
       <div className='neighborhoods-pm10-grade-image'>
-        <Pm10GradeImage grade={pm10Grade} />
+        <PM10GradeImage grade={pm10Grade} />
       </div>
       <div
         className={[
