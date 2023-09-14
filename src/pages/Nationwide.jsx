@@ -4,12 +4,21 @@ import DustCard from '../components/DustCard';
 import useAllSido, { DUSTS_PER_PAGE } from '../hooks/useAllSido';
 import Error from '../components/Error';
 import SkeletonLoading from '../components/SkeletonLoading';
+import { useDispatch } from 'react-redux';
+import { loadBookmarks } from '../store/bookmarkSlice';
 
 export default function Nationwide() {
   const [selectedSido, setSelectedSido] = useState(sidos[0].value);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, error, dusts] = useAllSido(selectedSido, currentPage);
   const maxPage = Math.ceil(Number(dusts.totalCount) / DUSTS_PER_PAGE);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const storedState = localStorage.getItem('bookmark');
+
+    dispatch(loadBookmarks(storedState));
+  }, [dispatch]);
 
   useEffect(() => {
     setCurrentPage(1);

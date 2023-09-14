@@ -9,7 +9,9 @@ export default function Bookmark() {
   const bookmarks = useSelector((state) => state);
 
   useEffect(() => {
-    dispatch(loadBookmarks());
+    const storedState = localStorage.getItem('bookmark');
+
+    dispatch(loadBookmarks(storedState));
     dispatch(updateBookmarks());
   }, [dispatch]);
 

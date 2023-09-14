@@ -25,11 +25,12 @@ const bookmarkSlice = createSlice({
       localStorage.setItem('bookmark', JSON.stringify(updatedState));
       return updatedState;
     },
-    loadBookmarks(state) {
-      const storedState = localStorage.getItem('bookmark');
-      if (storedState) {
-        return JSON.parse(storedState);
+    loadBookmarks(state, action) {
+      const storageBookmarks = action.payload;
+      if (storageBookmarks) {
+        return JSON.parse(storageBookmarks);
       }
+
       return state;
     },
   },

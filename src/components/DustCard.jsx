@@ -1,14 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { addBookmark, removeBookmark } from '../store/bookmarkSlice';
 
-export default function DustCard({
-  stationName,
-  sidoName,
-  pm10Grade,
-  pm10Value,
-  pm10Flag,
-  dataTime,
-}) {
+export default function DustCard(dustcard) {
+  const { stationName, sidoName, pm10Grade, pm10Value, pm10Flag, dataTime } =
+    dustcard;
   const dispatch = useDispatch();
   const bookmarks = useSelector((state) => state);
   const gradeContent = getGradeContent(pm10Grade, pm10Flag);
