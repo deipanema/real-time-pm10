@@ -12,26 +12,13 @@ const bookmarkSlice = createSlice({
         (bookmark) => bookmark.stationName === action.payload.stationName
       );
       if (!existingBookmark) {
-        const updatedState = [...state, action.payload];
-        localStorage.setItem('bookmark', JSON.stringify(updatedState));
-        return updatedState;
+        state.push(action.payload);
       }
-      return state;
     },
     removeBookmark(state, action) {
-      const updatedState = state.filter(
-        (data) => data.stationName !== action.payload
+      return state.filter(
+        (bookmark) => bookmark.stationName !== action.payload
       );
-      localStorage.setItem('bookmark', JSON.stringify(updatedState));
-      return updatedState;
-    },
-    loadBookmarks(state, action) {
-      const storageBookmarks = action.payload;
-      if (storageBookmarks) {
-        return JSON.parse(storageBookmarks);
-      }
-
-      return state;
     },
   },
   extraReducers: (builder) => {
@@ -41,6 +28,5 @@ const bookmarkSlice = createSlice({
   },
 });
 
-export const { addBookmark, removeBookmark, loadBookmarks } =
-  bookmarkSlice.actions;
+export const { addBookmark, removeBookmark } = bookmarkSlice.actions;
 export default bookmarkSlice.reducer;

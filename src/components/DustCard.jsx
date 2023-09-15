@@ -5,7 +5,7 @@ export default function DustCard(dustcard) {
   const { stationName, sidoName, pm10Grade, pm10Value, pm10Flag, dataTime } =
     dustcard;
   const dispatch = useDispatch();
-  const bookmarks = useSelector((state) => state);
+  const bookmarks = useSelector((state) => state.bookmark);
   const gradeContent = getGradeContent(pm10Grade, pm10Flag);
   const isBookmarked = bookmarks.find(
     (bookmark) => bookmark.stationName === stationName

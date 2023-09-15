@@ -6,11 +6,13 @@ export const updateBookmarks = createAsyncThunk(
   'bookmarks/updateBookmarks',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
+
     const updatedBookmarks = [];
 
-    for (const bookmark of state) {
+    for (const bookmark of state.bookmark) {
       try {
         const data = await getRealTimeStation(bookmark.stationName);
+
         const { pm10Grade, pm10Value, pm10Flag, dataTime } =
           data.response.body.items[0];
 
@@ -28,7 +30,6 @@ export const updateBookmarks = createAsyncThunk(
       }
     }
 
-    localStorage.setItem('bookmark', JSON.stringify(updatedBookmarks));
     return updatedBookmarks;
   }
 );
