@@ -1,4 +1,4 @@
-export default function PM10GradeImage({ grade }) {
+export default function Pm10GradeImage({ grade }) {
   switch (grade) {
     case '1':
       return <img src='images/good.gif' alt='좋음' />;
