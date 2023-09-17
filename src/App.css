@@ -11,12 +11,9 @@
   --color-grade4: #ff5959;
 }
 
-* {
-  font-family: 'Noto Sans KR', sans-serif;
-}
-
 body {
   margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
   background-color: var(--color-white);
   color: var(--color-text);
   display: flex;
